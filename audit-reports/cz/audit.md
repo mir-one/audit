@@ -39,16 +39,6 @@ By: [Roman Inozemtsev](https://github.com/inozemtsev-roman)
 
 [Found issues](#4-found-issues)
 
-[Conclusion](#5-conclusion)
-
-[References](#6-references)
-
-[Appendix. Issues' severity classification](#7-appendix-issues-severity-classification)
-
-[Appendix B. List of examines issue types](#8-appendix-b-list-of-examines-issue-types)
-
-[Results](#results)
-
 # 1. Disclaimer
 Note that this audit does not give any warranties on finding all possible security issues of the given smart contract(s), i.e., the evaluation result does not guarantee the nonexistence of any further findings of security issues. As one audit-based assessment cannot be considered comprehensive, we always recommend proceeding with several independent audits and a public bug bounty program to ensure the security of smart contract(s). Last but not least, this security audit should not be used as investment advice.
 
