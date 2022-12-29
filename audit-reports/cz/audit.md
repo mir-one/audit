@@ -186,29 +186,6 @@ The Oracle is deployed on testnet TON at address:
 
 # 4. Found issues
 
-The owner of ```admin_address``` is allowed to:
-
-* ```op::mint``` any amount of jettons to any wallet
-* ```op::change_admin``` to any other one
-* lock any wallet (prevent funds transferring)
-* transfer funds from any wallet to any other one or burn them
-* invalidate all the wallets, invalidate total_supply and other data
-* rename Jetton, change description or decimals
-
-```c
-send_boc(
-                wallet.create_transfer_message(
-                    minter.address.to_string(1, 1, 1),
-                    5 * 10 ** 7,
-                    wallet_seqno,
-                    payload=begin_cell() \
-                    .store_uint(3, 32).store_uint(0, 64) \
-                    .store_address(new_admin) \
-                    .end_cell()
-                )['message'].to_boc(False)
-            )
-```
-
 ### Minter Recommendation
 The risk describes the current project design, in most cases, it can’t be completely Resolved.
 
