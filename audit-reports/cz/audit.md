@@ -189,8 +189,6 @@ The Oracle is deployed on testnet TON at address:
 ### Minter Recommendation
 The risk describes the current project design, in most cases, it can’t be completely Resolved.
 
-We advise to carefully manage the privileged account private key to avoid any potential risks of being hacked.
-
 There are some feasible suggestions that would also mitigate the potential risk:
 
 * Assignment of privileged role to the [multi-signature](https://github.com/mir-one/dao-multisig) wallet to prevent a single point of failure
