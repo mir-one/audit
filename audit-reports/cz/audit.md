@@ -23,8 +23,7 @@ Verified contract: 01/11/2023
 |__send-modes.fc__ |ef1ad3e0e65bb6f04661fda76d65c3e9c17520f2fb5822339d14cf5bc6ed46bb |
 |__stdlib.fc__ |eef66332256805555bceb1d76b4550a454d088c834467fe4f7314365f1f95e06 |
 
-```js
-
+```bash
 (base) ton@fingerprints:~/Desktop/lockup-ico-main/contracts$ sha256sum *.fc
 2fc54e873deb47f067973497f6467b5dcf12b59a226ce464bf2f975435b7cec5  jetton-minter.fc
 3e92b2788eabecf7ad82fa8bca0fc63c66f3d0f2195932f0bf5f2e66ea538b13  jetton-utils.fc
