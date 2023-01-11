@@ -9,6 +9,8 @@ Prepare for:
 By: [Roman Inozemtsev](https://github.com/inozemtsev-roman)
 12/29/2022
 
+Verified contract: 01/11/2023
+
 |Audited Files |SHA256 |
 |---|---|
 |__jetton-minter.fc__ | 2fc54e873deb47f067973497f6467b5dcf12b59a226ce464bf2f975435b7cec5|
@@ -21,10 +23,31 @@ By: [Roman Inozemtsev](https://github.com/inozemtsev-roman)
 |__send-modes.fc__ |ef1ad3e0e65bb6f04661fda76d65c3e9c17520f2fb5822339d14cf5bc6ed46bb |
 |__stdlib.fc__ |eef66332256805555bceb1d76b4550a454d088c834467fe4f7314365f1f95e06 |
 
+```js
+
+(base) ton@fingerprints:~/Desktop/lockup-ico-main/contracts$ sha256sum *.fc
+2fc54e873deb47f067973497f6467b5dcf12b59a226ce464bf2f975435b7cec5  jetton-minter.fc
+3e92b2788eabecf7ad82fa8bca0fc63c66f3d0f2195932f0bf5f2e66ea538b13  jetton-utils.fc
+ee9f2e6a4456a161578aa93498deea821f2715814052a08997d28050be13b909  jetton-wallet.fc
+2a9e449aa1f9dd26570b1b7628361dc8e37a6c864176fb6bc8e325060528a0d1  msg.fc
+5401cb124e112ebf04e03dc67c98266056331cd6ba1ed91130c5f2e9fe7dfde3  op-codes.fc
+74cea061e2af9498477b53cd19180969aa858727152aed772ed6d6633d802d3e  params.fc
+8ebb5abc07a99ed2e3088cd0924362a599fe1aac37072a064b05ffb54d60bc67  rate-oracle.fc
+ef1ad3e0e65bb6f04661fda76d65c3e9c17520f2fb5822339d14cf5bc6ed46bb  send-modes.fc
+eef66332256805555bceb1d76b4550a454d088c834467fe4f7314365f1f95e06  stdlib.fc
+
+```
+
+
+
 ## Audit Timeline
 ✅ Requested on 12/27/2022
 
 ✅ Revisioned on 12/29/2022
+
+✅ Verify Jetton on 01/11/2023
+
+✅ Verify Oracle on 01/11/2023
 
 ## Findings Performance
 ⌛ No Critical Findings (Logic)
@@ -38,6 +61,8 @@ By: [Roman Inozemtsev](https://github.com/inozemtsev-roman)
 [Contracts overview](#3-contracts-overview)
 
 [Found issues](#4-found-issues)
+
+[Verified contract](#5-verify-contracts-in-ton)
 
 # 1. Disclaimer
 Note that this audit does not give any warranties on finding all possible security issues of the given smart contract(s), i.e., the evaluation result does not guarantee the nonexistence of any further findings of security issues. As one audit-based assessment cannot be considered comprehensive, we always recommend proceeding with several independent audits and a public bug bounty program to ensure the security of smart contract(s). Last but not least, this security audit should not be used as investment advice.
@@ -235,9 +260,73 @@ ico_remaining_amount -= jetton_amount;
 ## Potential insecure manage Oracle&Minter hosting
 Applications should ideally be hosted with their own dedicated server. If that is not possible, make sure the hosting services are reputable and can be trusted. To enhance the security of an application, it's recommended to restrict the access of the original source from the public internet.
 
-## Verify contracts in TON
+## 5. Verify contracts in TON
 Explorers on the TON network display contracts other than the standard ones as unverifiable. The immutability of a smart contract after being published on the blockchain allows participants in the business process to "believe" in its "honesty" - all possible actions, as well as already completed transactions, are visible to anyone, so there is no room for various kinds of data manipulations or business logic. Unfortunately, this quality also poses a threat: if an error (accidental or specially introduced at the development stage) into the logic of a smart contract, it cannot be corrected after the contract is written to the blockchain, and an attacker can use the vulnerability at any time to benefit.
 
 This would reduce the likelihood of malicious code being compiled in the same byte code, but contains misleading comments and variables that do not affect the resulting byte code.
 
-> To verification Jetton, after Deploy in mainnet - sent 1 TON + 1 000 Donation on address: ```fingerprints.ton```
+# Report
+## How the contract was verified?
+> Verification process: ```fingerprints.ton```
+
+The source code of the project contains the necessary components for the operation of a smart contract in the TON network.
+
+![scq code](scr_code.png)
+
+After the contract is assembled and deployed, Bytecode and Raw data are available on the network.
+
+![Oracle nv](oracle_nv.jpg)
+Contract Oracle address [EQDCpK5PquTTAO0vRnhJtiFT9YMEMFO6ns0AektZhNdDUs2T](https://tonscan.org/address/EQDCpK5PquTTAO0vRnhJtiFT9YMEMFO6ns0AektZhNdDUs2T#source)
+
+__The contract has not been verified!__
+
+## Verify!
+
+![ver_con](ver_con.jpg)
+After adding the build files and specifying command: ```func -o output.fif -SPA stdlib.fc jetton-minter.fc jetton-utils.fc msg.fc op-codes.fc params.fc send-modes.fc```
+
+![Oracle add](oracle_add.jpg)
+## Oracle added!
+
+![Ver con ts](ver_con_ts.jpg)
+### Verified Jetton ENRG!
+
+## Contract ENRG
+|||
+|-|-|
+|Address|EQDA6v7olSvZCEr2yNhUlM4eBnRF11lsHLrtkkh7MSMICt4r|
+|Workchain | Basic Workchain (0) |
+|Code Hash |oNsMIqfX4Fv2mkyOsaja6yaZYoTcznVhSPvK/BkV0/I= |
+
+## Compiler
+|Compiler|func|
+|-|-|
+|Version|[0.3.0](https://github.com/ton-blockchain/ton/tree/func-0.3.0/crypto/func)|
+|Command|```func -o output.fif -SPA stdlib.fc jetton-minter.fc jetton-utils.fc msg.fc op-codes.fc params.fc send-modes.fc```|
+|Verified on|1/11/2023|
+
+## Verification Proof
+This source code compiles to the same exact bytecode that is found on-chain, verified by a decentralized group of validators.
+
+|Status|Public Key|IP|Verification date|Verifier|
+|-|-|-|-|-|
+|✅ Verified|JHMdZoLZNivU2k9kG0pJ5/a8erYIR/nfimKIbQqMj9w=|12.125.234.77|1/11/2023|[Proof](https://tonverifier.live/EQDA6v7olSvZCEr2yNhUlM4eBnRF11lsHLrtkkh7MSMICt4r)|
+|✅ Verified|kuJfZpEPqRThW+xCTu92kc/TYRzZcGHCCjiCu/s/8H4=|12.125.234.77|1/11/2023 |[Proof](https://tonverifier.live/EQDA6v7olSvZCEr2yNhUlM4eBnRF11lsHLrtkkh7MSMICt4r)|
+|✅ Verified|mpdHqLhI5rpbl6T0tG0S7LohGj2IUzoGt7bfrEKSe+Y=|12.125.234.77|1/11/2023|[Proof](https://tonverifier.live/EQDA6v7olSvZCEr2yNhUlM4eBnRF11lsHLrtkkh7MSMICt4r)|
+
+## Oracle
+![Oracle ts](oracle_ts.jpg)
+Oracle [EQDCpK5PquTTAO0vRnhJtiFT9YMEMFO6ns0AektZhNdDUs2T](https://tonscan.org/address/EQDCpK5PquTTAO0vRnhJtiFT9YMEMFO6ns0AektZhNdDUs2T#source)
+## Verified!
+![Oracle verify](oracle_verify.jpg)
+This source code compiles to the same exact bytecode that is found on-chain, verified by a decentralized group of validators.
+
+---
+
+# Timeline
+| |Process |Date |Proof|
+|-|-|-|-|
+|✅ | Requested| 12/27/2022|[Proof](#Audit-Timeline) |
+|✅ | Revisioned| 12/29/2022|[Proof](#Audit-Timeline) |
+|✅ | Verify Jetton| 01/11/2023|[Proof](#verification-proof) |
+|✅ |Verify Oracle| 01/11/2023|[Proof](#verified) |
