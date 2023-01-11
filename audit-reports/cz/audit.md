@@ -98,7 +98,7 @@ The report has been prepares for [Chess Zombies](https://chesszombies.fun)
 |Type | A token with a limited issue|
 |Ticker |***$ENGR*** | 
 |Total supply| 100 000 000|
-|Decimals | 9 |
+|Decimals | 0 |
 |Seed price |$0.25 USD |
 |Private sale price |$0.30 USD |
 |Strategic sale price |$0.35 USD |
