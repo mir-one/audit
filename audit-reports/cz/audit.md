@@ -293,7 +293,7 @@ After adding the build files and specifying command: ```func -o output.fif -SPA 
 ## Contract ENRG
 |||
 |-|-|
-|Address|EQDA6v7olSvZCEr2yNhUlM4eBnRF11lsHLrtkkh7MSMICt4r|
+|Address|[EQDA6v7olSvZCEr2yNhUlM4eBnRF11lsHLrtkkh7MSMICt4r](https://tonscan.org/address/EQDA6v7olSvZCEr2yNhUlM4eBnRF11lsHLrtkkh7MSMICt4r#source)|
 |Workchain | Basic Workchain (0) |
 |Code Hash |oNsMIqfX4Fv2mkyOsaja6yaZYoTcznVhSPvK/BkV0/I= |
 
@@ -315,9 +315,11 @@ This source code compiles to the same exact bytecode that is found on-chain, ver
 
 ## Oracle
 ![Oracle ts](oracle_ts.jpg)
+
 Oracle [EQDCpK5PquTTAO0vRnhJtiFT9YMEMFO6ns0AektZhNdDUs2T](https://tonscan.org/address/EQDCpK5PquTTAO0vRnhJtiFT9YMEMFO6ns0AektZhNdDUs2T#source)
 ## Verified!
 ![Oracle verify](oracle_verify.jpg)
+
 This source code compiles to the same exact bytecode that is found on-chain, verified by a decentralized group of validators.
 
 ---
