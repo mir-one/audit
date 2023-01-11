@@ -339,3 +339,9 @@ This source code compiles to the same exact bytecode that is found on-chain, ver
 |✅ | Revisioned| 12/29/2022|[Proof](#Audit-Timeline) |
 |✅ | Verify Jetton| 01/11/2023|[Proof](#verification-proof) |
 |✅ |Verify Oracle| 01/11/2023|[Proof](#verified) |
+
+# Links
+
+[Oracle contract](https://tonscan.org/address/EQDCpK5PquTTAO0vRnhJtiFT9YMEMFO6ns0AektZhNdDUs2T)
+
+[Jetton contract](https://tonscan.org/address/EQDA6v7olSvZCEr2yNhUlM4eBnRF11lsHLrtkkh7MSMICt4r)
