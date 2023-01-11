@@ -37,8 +37,6 @@ eef66332256805555bceb1d76b4550a454d088c834467fe4f7314365f1f95e06  stdlib.fc
 
 ```
 
-
-
 ## Audit Timeline
 ✅ Requested on 12/27/2022
 
@@ -259,14 +257,13 @@ ico_remaining_amount -= jetton_amount;
 ## Potential insecure manage Oracle&Minter hosting
 Applications should ideally be hosted with their own dedicated server. If that is not possible, make sure the hosting services are reputable and can be trusted. To enhance the security of an application, it's recommended to restrict the access of the original source from the public internet.
 
-## 5. Verify contracts in TON
+# 5. Verify contracts in TON
 Explorers on the TON network display contracts other than the standard ones as unverifiable. The immutability of a smart contract after being published on the blockchain allows participants in the business process to "believe" in its "honesty" - all possible actions, as well as already completed transactions, are visible to anyone, so there is no room for various kinds of data manipulations or business logic. Unfortunately, this quality also poses a threat: if an error (accidental or specially introduced at the development stage) into the logic of a smart contract, it cannot be corrected after the contract is written to the blockchain, and an attacker can use the vulnerability at any time to benefit.
 
 This would reduce the likelihood of malicious code being compiled in the same byte code, but contains misleading comments and variables that do not affect the resulting byte code.
 
 # Report
 ## How the contract was verified?
-> Verification process: ```fingerprints.ton```
 
 The source code of the project contains the necessary components for the operation of a smart contract in the TON network.
 
@@ -279,7 +276,7 @@ Contract Oracle address [EQDCpK5PquTTAO0vRnhJtiFT9YMEMFO6ns0AektZhNdDUs2T](https
 
 __The contract has not been verified!__
 
-## Verify!
+## TON Verifier!
 
 ![ver_con](ver_con.jpg)
 After adding the build files and specifying command: ```func -o output.fif -SPA stdlib.fc jetton-minter.fc jetton-utils.fc msg.fc op-codes.fc params.fc send-modes.fc```
@@ -312,6 +309,17 @@ This source code compiles to the same exact bytecode that is found on-chain, ver
 |✅ Verified|JHMdZoLZNivU2k9kG0pJ5/a8erYIR/nfimKIbQqMj9w=|12.125.234.77|1/11/2023|[Proof](https://tonverifier.live/EQDA6v7olSvZCEr2yNhUlM4eBnRF11lsHLrtkkh7MSMICt4r)|
 |✅ Verified|kuJfZpEPqRThW+xCTu92kc/TYRzZcGHCCjiCu/s/8H4=|12.125.234.77|1/11/2023 |[Proof](https://tonverifier.live/EQDA6v7olSvZCEr2yNhUlM4eBnRF11lsHLrtkkh7MSMICt4r)|
 |✅ Verified|mpdHqLhI5rpbl6T0tG0S7LohGj2IUzoGt7bfrEKSe+Y=|12.125.234.77|1/11/2023|[Proof](https://tonverifier.live/EQDA6v7olSvZCEr2yNhUlM4eBnRF11lsHLrtkkh7MSMICt4r)|
+
+Metadata Jetton
+```json
+{
+  "name": "Energy Cells",
+  "description": "Energy Cells (ENRG) is a governance investment token used in the gaming ecosystem of the SHEDEVER studio to vote for the development of the studio's projects and purchase the basic cross-game resource - Energy. Each game project from the SHEDEVER studio is an independent source of liquidity for ENRG.",
+  "symbol": "ENRG",
+  "image": "https://stage.shedever.studio/files/ENRG/ENRG_logo.png",
+  "decimals": 0
+}
+```
 
 ## Oracle
 ![Oracle ts](oracle_ts.jpg)
